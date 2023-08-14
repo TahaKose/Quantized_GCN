@@ -56,14 +56,14 @@ def load_data(dataset_str):
     names = ['x', 'y', 'tx', 'ty', 'allx', 'ally', 'graph']
     objects = []
     for i in range(len(names)):
-        with open("/content/pygcn/data/ind.{}.{}".format(dataset_str, names[i]), 'rb') as f:
+        with open("/content/Quantized_GCN/data/ind.{}.{}".format(dataset_str, names[i]), 'rb') as f:
             if sys.version_info > (3, 0):
                 objects.append(pkl.load(f, encoding='latin1'))
             else:
                 objects.append(pkl.load(f))
 
     x, y, tx, ty, allx, ally, graph = tuple(objects)
-    test_idx_reorder = parse_index_file("/content/pygcn/data/ind.{}.test.index".format(dataset_str))
+    test_idx_reorder = parse_index_file("/content/Quantized_GCN/data/ind.{}.test.index".format(dataset_str))
     test_idx_range = np.sort(test_idx_reorder)
 
     if dataset_str == 'citeseer':
